@@ -45,4 +45,8 @@ public class UserService implements UserDetailsService{
 		logger.info("User found "+username);
 		return user;
 	}
+	
+	public UserDTO getProfile() {
+		return new UserDTO(authService.authenticated());
+	}
 }
