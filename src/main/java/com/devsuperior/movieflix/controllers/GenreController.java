@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.devsuperior.movieflix.entities.Genre;
+import com.devsuperior.movieflix.dto.GenreDTO;
 import com.devsuperior.movieflix.services.GenreService;
 
 @RestController
@@ -20,8 +20,8 @@ public class GenreController {
 	GenreService service;
 	
 	@GetMapping
-	public ResponseEntity<List<Genre>> findAll(){
-		List<Genre> list = service.findAll();
+	public ResponseEntity<List<GenreDTO>> findAll(){
+		List<GenreDTO> list = service.findAll();
 		return ResponseEntity.ok().body(list.stream().collect(Collectors.toList()));
 	}
 }
